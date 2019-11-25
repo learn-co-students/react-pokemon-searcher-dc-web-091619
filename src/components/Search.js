@@ -7,8 +7,9 @@ const Search = props => {
         <input className="prompt" onChange={props.onChange} />
         <i className="search icon" />
       </div>
+      <button onClick={props.sortByName} className="ui button">Sort by Name</button>
     </div>
   )
 }
 
-export default Search
+export default Search  
