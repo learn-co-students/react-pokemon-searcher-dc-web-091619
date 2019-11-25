@@ -13,6 +13,32 @@ class PokemonForm extends React.Component {
     }
   }
 
+  handleSubmit = () => {
+    // console.log(event.currentTarget.firstChild.firstChild)
+
+    let name = document.getElementsByName("name")[0].value;
+    let hp = document.getElementsByName("hp")[0].value;
+    let frontUrl = document.getElementsByName("frontUrl")[0].value;
+    let backUrl = document.getElementsByName("backUrl")[0].value;
+
+    // console.log(name)
+    // console.log(hp)
+    // console.log(frontUrl)
+    // console.log(backUrl)
+
+    this.setState({
+      name: name,
+      hp: hp,
+      frontUrl: frontUrl,
+      backUrl: backUrl
+    }, () => {
+
+      this.props.addPokemon(this.state.name, this.state.hp, this.state.frontUrl, this.state.backUrl)
+      
+    })
+
+  }
+
   render() {
     return (
       <div>

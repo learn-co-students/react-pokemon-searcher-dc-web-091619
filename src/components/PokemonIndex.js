@@ -4,17 +4,18 @@ import PokemonForm from './PokemonForm'
 import Search from './Search'
 import { Container } from 'semantic-ui-react'
 
-class PokemonPage extends React.Component {
+class PokemonPage extends React.Component {  
+
   render() {
     return (
       <Container>
         <h1>Pokemon Searcher</h1>
         <br />
-        <PokemonForm />
+        <PokemonForm addPokemon={this.props.addPokemon}/>
         <br />
-        <Search onChange={() => console.log('🤔')} />
+        <Search onChange={(event) => this.props.filter(event)} />
         <br />
-        <PokemonCollection />
+        <PokemonCollection pokemon={this.props.pokemon}/>
       </Container>
     )
   }
