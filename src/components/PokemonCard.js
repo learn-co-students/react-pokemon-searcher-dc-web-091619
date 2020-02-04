@@ -19,7 +19,7 @@ class PokemonCard extends React.Component {
       <Card onClick={this.clickHandler}>
         <div>
           <div className="image">
-            <img src={this.state.clicked ? back : front} />
+            <img src={this.state.clicked ? back : front} alt={name}/>
           </div>
           <div className="content">
             <div className="header">{name}</div>
