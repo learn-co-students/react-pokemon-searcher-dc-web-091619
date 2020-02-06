@@ -13,7 +13,7 @@ class PokemonCard extends React.Component {
   }
 
   render() {
-    const {sprites: {front, back}, name, stats: [specialDefense, specialAttack, defense, attack, hp]} = this.props.pokemon
+    const {sprites: {front, back}, name, stats: [speed, specialDefense, specialAttack, defense, attack, hp]} = this.props.pokemon
     
     return (
       <Card onClick={this.clickHandler}>

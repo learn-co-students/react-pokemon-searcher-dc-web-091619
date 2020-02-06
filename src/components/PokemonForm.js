@@ -5,7 +5,6 @@ class PokemonForm extends React.Component {
   constructor() {
     super()
     let spriteNum = this.randomNumber()
-
     this.state = {
       name: '',
       hp: '',
@@ -17,6 +16,16 @@ class PokemonForm extends React.Component {
   //generate random number between 718 and 151
   randomNumber(){
     return Math.floor( Math.random() * (718-151) + 151 )
+  }
+
+  resetState = () => {
+    let spriteNum = this.randomNumber()
+    this.setState({
+      name: '',
+      hp: '',
+      frontUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${spriteNum}.png`,
+      backUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${spriteNum}.png`
+    })
   }
 
   handleSubmit = event => {
@@ -48,7 +57,7 @@ class PokemonForm extends React.Component {
           name: "attack"
         },
         {
-          value: `${hp}`,
+          value: parseInt(hp,10),
           name: "hp"
         }
       ],
@@ -59,6 +68,7 @@ class PokemonForm extends React.Component {
     }
 
     this.props.addPokemon(data)
+    this.resetState()
   }
 
   handleChange = event => {

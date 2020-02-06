@@ -37,7 +37,9 @@ class PokemonPage extends React.Component {
       body: JSON.stringify(data)
     })
       .then(resp => resp.json())
-      .then(this.fetchPokemon())
+      .then(pokemon => this.setState({
+        allPokemon: [...this.state.allPokemon, pokemon]
+      }))
   }
 
   
